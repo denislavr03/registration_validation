@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация (JS)</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        form div { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; }
+        input { width: 300px; padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+        button { padding: 10px 15px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        small { color: #666; font-size: 0.9em; }
+        .error-message { color: red; font-size: 0.9em; margin-top: 5px; display: none; /* Скрит по подразбиране */ }
+        #server-message { margin-top: 20px; padding: 10px; border-radius: 4px; }
+        #server-message.success { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+        #server-message.error { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+        #server-message.info { background-color: #cce5ff; color: #004085; border: 1px solid #b8daff; }
+    </style>
+</head>
+<body>
+    <h1>Регистрация</h1>
+
+    <div id="server-message" style="display: none;"></div>
+
+    <form id="registration-form" action="/register" method="post">
+        <div>
+            <label for="email">Имейл:</label>
+            <input type="email" id="email" name="email" required>
+            <div id="email-error" class="error-message">Невалиден имейл формат.</div>
+        </div>
+        <div>
+            <label for="phone">Телефонен номер:</label>
+            <input type="tel" id="phone" name="phone" required>
+            <small>(пр. 0881234567 или +359881234567)</small>
+            <div id="phone-error" class="error-message">Невалиден формат (пр. 08xxxxxxxx или +3598xxxxxxxx).</div>
+        </div>
+        <div>
+            <label for="password">Парола:</label>
+            <input type="password" id="password" name="password" required>
+            <small>(Мин. 8 символа, поне 1 главна буква, поне 1 цифра)</small>
+            <div id="password-error" class="error-message">Паролата не отговаря на изискванията.</div>
+        </div>
+        <div>
+            <label for="confirm_password">Потвърди парола:</label>
+            <input type="password" id="confirm_password" name="confirm_password" required>
+            <div id="confirm_password-error" class="error-message">Паролите не съвпадат.</div>
+        </div>
+        <button type="submit">Регистрация</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+</html>
